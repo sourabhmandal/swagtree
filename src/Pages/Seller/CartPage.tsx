@@ -5,7 +5,7 @@ import CartProductCard from '../../components/User/Product/CartProductCard';
 
 function CartPage() {
   return (
-    <div>
+    <div className='mb-16'>
       <TopNav />
       <div className='mt-5 mx-2 flex items-center'>
         <h1 className='text-lg font-black w-44'>Active Cart</h1>
@@ -15,6 +15,12 @@ function CartPage() {
         <CartProductCard />
         <CartProductCard />
         <CartProductCard />
+      </div>
+
+      <div className='mx-2'>
+        <button className='w-full rounded-md mb-2 bg-black text-white p-3 text-center'>
+          Checkout
+        </button>
       </div>
 
       <div className='mt-5 mx-2 flex items-center'>
