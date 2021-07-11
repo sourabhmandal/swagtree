@@ -5,7 +5,18 @@ import CartPage from './Pages/Seller/CartPage';
 import CheckoutPage from './Pages/Seller/CheckoutPage';
 import HomePage from './Pages/Seller/HomePage';
 import ProductPage from './Pages/Seller/ProductPage';
+import {
+  ClerkProvider,
+  RedirectToSignIn,
+  SignedIn,
+  SignedOut,
+  UserButton,
+  useUser,
+} from '@clerk/clerk-react';
 
+const clerkFrontendApi = process.env.REACT_APP_CLERK_FRONTEND_API;
+
+console.log(clerkFrontendApi);
 const App: FC<{}> = (props) => {
   return (
     <Router>
