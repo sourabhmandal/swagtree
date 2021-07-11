@@ -1,4 +1,3 @@
-import React from 'react';
 import NavOne from '../../components/User/BottomNav/NavOne';
 import TopNav from '../../components/User/Header/TopNav';
 
