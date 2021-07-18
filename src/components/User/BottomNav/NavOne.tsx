@@ -1,5 +1,6 @@
 import React from 'react';
 import { SignedIn, SignedOut, UserButton, useUser } from '@clerk/clerk-react';
+import { Link } from 'react-router-dom';
 
 function NavOne() {
   let user;
@@ -9,8 +10,8 @@ function NavOne() {
       className='block fixed border-t inset-x-0 bottom-0 z-10 bg-white shadow'
     >
       <div id='tabs' className='flex justify-between'>
-        <a
-          href='/'
+        <Link
+          to='/'
           className='w-full focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-2 pb-1'
         >
           <svg
@@ -57,9 +58,9 @@ function NavOne() {
             </g>
           </svg>
           <span className='tab tab-home block text-xs'>Home</span>
-        </a>
-        <a
-          href='/'
+        </Link>
+        <Link
+          to='/'
           className='w-full focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-2 pb-1'
         >
           <svg
@@ -89,9 +90,9 @@ function NavOne() {
             </g>
           </svg>
           <span className='tab tab-explore block text-xs'>Bookmarks</span>
-        </a>
-        <a
-          href='/cart'
+        </Link>
+        <Link
+          to='/cart'
           className='w-full focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-2 pb-1'
         >
           <svg
@@ -138,7 +139,7 @@ function NavOne() {
             </g>
           </svg>
           <span className='tab tab-whishlist block text-xs'>Cart</span>
-        </a>
+        </Link>
         <SignedIn>
           <div className='w-full justify-center block text-center pt-2 pb-1 cursor-pointer hover:text-purple-400 hover:bg-gray-100'>
             <div className='flex w-full items-center align-center my-auto justify-center'>
@@ -150,12 +151,12 @@ function NavOne() {
           </div>
         </SignedIn>
         <SignedOut>
-          <a
-            href='/sign-in/'
+          <Link
+            to='/sign-in/'
             className='w-full justify-center block text-center pt-4 pb-1 cursor-pointer hover:text-purple-400 hover:bg-gray-100'
           >
             <span className='text-center'>Signin</span>
-          </a>
+          </Link>
         </SignedOut>
       </div>
     </section>

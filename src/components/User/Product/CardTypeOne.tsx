@@ -6,6 +6,8 @@ import { WishlistContext } from '../../../context/WishlistContext';
 function CardTypeOne(props: any) {
   const { currTheme } = useContext(ThemeContext);
   const { handleSetActiveCart } = useContext(ActiveCartContext);
+  const { handleSetWishlist } = useContext(WishlistContext);
+  console.log('here in card');
 
   return (
     <div className='w-full relative rounded-md border'>
@@ -48,6 +50,9 @@ function CardTypeOne(props: any) {
           </button>
           <button
             className={`hover:bg-${currTheme.secondaryColor.color}-400 p-2 rounded-full`}
+            onClick={() => {
+              handleSetWishlist(props._id);
+            }}
           >
             {/*wishlist cart*/}
             <svg

@@ -1,9 +1,10 @@
 import NavOne from '../../components/User/BottomNav/NavOne';
 import TopNav from '../../components/User/Header/TopNav';
+import Layout from './Layout';
 
 function CheckoutPage() {
   return (
-    <div>
+    <Layout>
       <TopNav />
       <div className='m-3'>
         <input
@@ -30,9 +31,8 @@ function CheckoutPage() {
             Proceed To Confirm
           </button>
         </div>
-        <NavOne />
       </div>
-    </div>
+    </Layout>
   );
 }
 

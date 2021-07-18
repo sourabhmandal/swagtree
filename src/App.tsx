@@ -27,56 +27,46 @@ import ActiveCartProvider from './context/ActiveCartContex';
 import CatalogProvider from './context/CatalogContext';
 
 const clerkFrontendApi = process.env.REACT_APP_CLERK_FRONTEND_API;
-
-console.log(clerkFrontendApi);
 const App: FC<{}> = (props) => {
   return (
-    <ThemeProvider>
-      <Router>
-        <RouterWithHistory>
-          <Switch>
-            <Route path='/sign-in/(.*)?'>
-              <SignIn routing='path' path='/sign-in' />
-            </Route>
-            <Route path='/sign-up/(.*)?'>
-              <SignUp routing='path' path='/sign-up' />
-            </Route>
-            <Route exact path={'/product'} component={ProductPage} />
-            <PrivateRoute path='/user/'>
-              <UserProfile routing='path' path='/user' />
-            </PrivateRoute>
+    <Router>
+      <RouterWithHistory>
+        <Switch>
+          <Route path='/sign-in/(.*)?'>
+            <SignIn routing='path' path='/sign-in' />
+          </Route>
+          <Route path='/sign-up/(.*)?'>
+            <SignUp routing='path' path='/sign-up' />
+          </Route>
+          <Route exact path={'/product'} component={ProductPage} />
+          <PrivateRoute path='/user/'>
+            <UserProfile routing='path' path='/user' />
+          </PrivateRoute>
 
-            <PrivateRoute
-              exact
-              path={'/dashboard/'}
-              component={DashboardPage}
-            />
-            <PrivateRoute exact path={'/checkout'} component={CheckoutPage} />
+          <PrivateRoute exact path={'/dashboard/'} component={DashboardPage} />
+          <PrivateRoute exact path={'/checkout'} component={CheckoutPage} />
 
-            <PrivateRoute exact path={'/cart'} component={CartPage} />
-            <CatalogProvider>
-              <Route path={'/'} component={HomePage} />
-            </CatalogProvider>
-            <Route>
-              <div>No route found</div>
-            </Route>
-            {/* Catch-all route will render if no other route renders */}
-            {/* <Route>
-              <SignedIn>
-                <UserButton />
-                <HomePage />
-                <div>You are signed in. You can access both routes.</div>
-                <Navigation />
-              </SignedIn>
-              <SignedOut>
-                <div>You are signed out. You can access the public route.</div>
-                <Navigation />
-              </SignedOut>
-            </Route> */}
-          </Switch>
-        </RouterWithHistory>
-      </Router>
-    </ThemeProvider>
+          <PrivateRoute exact path={'/cart'} component={CartPage} />
+          <Route path={'/'} component={HomePage} />
+          <Route>
+            <div>No route found</div>
+          </Route>
+          {/* Catch-all route will render if no other route renders */}
+          <Route>
+            <SignedIn>
+              <UserButton />
+              <HomePage />
+              <div>You are signed in. You can access both routes.</div>
+              <Navigation />
+            </SignedIn>
+            <SignedOut>
+              <div>You are signed out. You can access the public route.</div>
+              <Navigation />
+            </SignedOut>
+          </Route>
+        </Switch>
+      </RouterWithHistory>
+    </Router>
   );
 };
 

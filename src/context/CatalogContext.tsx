@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 
-export const CatalogContext = React.createContext<IPropsProvide | undefined>(
-  undefined
-);
+export const CatalogContext = React.createContext<IPropsProvide>({
+  products: [],
+});
+
 function CatalogProvider(props: any) {
   const [products, setProducts] = useState<Array<Product>>([
     {
@@ -66,8 +67,8 @@ export interface IPropsProvide {
 }
 
 interface Product {
-  _id: string;
-  product_name: string;
-  product_price: number;
-  product_image: string;
+  _id?: string;
+  product_name?: string;
+  product_price?: number;
+  product_image?: string;
 }

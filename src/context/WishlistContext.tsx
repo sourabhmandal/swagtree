@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 
-export const WishlistContext = React.createContext<IPropsProvide | undefined>(
-  undefined
-);
+export const WishlistContext = React.createContext<IPropsProvide>({
+  wishList: [],
+  handleSetWishlist: (val: any) => {},
+});
 
 function WishlistProvider(props: any) {
   const [wishList, setwishList] = useState([]);
