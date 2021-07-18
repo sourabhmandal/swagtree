@@ -1,29 +1,51 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const darkMode: ModeTheme = {
-  primaryColor: '#eee',
-  secondaryColor: '#ccc',
-  primaryTextColor: '#eee',
-  secondaryTextColor: '#bbb',
+class Color {
+  color: String;
+  strength: String;
+  constructor(color?: String, strength?: String) {
+    this.color = color || 'gray';
+    this.strength = strength || '300';
+  }
+}
+
+const darkTheme: Theme = {
+  primaryColor: new Color('purple', '500'),
+  secondaryColor: new Color('purple', '400'),
+  primaryTextColor: new Color('yellow', '600'),
+  secondaryTextColor: new Color('yellow', '400'),
 };
 
-const lightMode: ModeTheme = {
-  primaryColor: 'white',
-  secondaryColor: 'black',
-  primaryTextColor: 'white',
-  secondaryTextColor: 'black',
+const lightTheme: Theme = {
+  primaryColor: new Color(),
+  secondaryColor: new Color(),
+  primaryTextColor: new Color(),
+  secondaryTextColor: new Color(),
 };
 
-const theme: Theme = {
-  dark: darkMode,
-  light: lightMode,
+const mode: Mode = {
+  default: 'dark',
+  current: 'dark',
 };
 
-export const ThemeContext = React.createContext<ModeTheme>(theme.dark);
+export const ThemeContext = React.createContext<IPropsProvide>({
+  currTheme: lightTheme,
+  currMode: mode.current,
+});
 
 function ThemeProvider(props: any) {
+  const [currTheme, setcurrTheme] = useState<Theme>(darkTheme);
+  const [currMode, setcurrMode] = useState<Mode>(mode);
+
+  let provide: IPropsProvide = {
+    currTheme: currTheme,
+    currMode: currMode.current,
+    setcurrTheme,
+    setcurrMode,
+  };
+
   return (
-    <ThemeContext.Provider value={theme.dark}>
+    <ThemeContext.Provider value={provide}>
       {props.children}
     </ThemeContext.Provider>
   );
@@ -31,15 +53,22 @@ function ThemeProvider(props: any) {
 
 export default ThemeProvider;
 
-//=============================================================
-interface ModeTheme {
-  primaryColor: string;
-  primaryTextColor: string;
-  secondaryColor: string;
-  secondaryTextColor: string;
+//======================= INTERFACES FOR THEME ======================================
+
+export interface IPropsProvide {
+  currTheme: Theme;
+  currMode: String;
+  setcurrTheme?: (val: Theme) => void;
+  setcurrMode?: (val: Mode) => void;
+}
+interface Theme {
+  primaryColor: Color;
+  primaryTextColor: Color;
+  secondaryColor: Color;
+  secondaryTextColor: Color;
 }
 
-interface Theme {
-  dark: ModeTheme;
-  light: ModeTheme;
+interface Mode {
+  current: String;
+  default: String;
 }

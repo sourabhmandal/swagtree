@@ -1,54 +1,76 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import { ActiveCartContext } from '../../../context/ActiveCartContex';
+import { ThemeContext } from '../../../context/ThemeContext';
+import { WishlistContext } from '../../../context/WishlistContext';
 
-function CardTypeOne() {
+function CardTypeOne(props: any) {
+  const { currTheme } = useContext(ThemeContext);
+  const { handleSetActiveCart } = useContext(ActiveCartContext);
+
   return (
-    <div className='w-full relative h-52 rounded-md border'>
-      <div className='absolute top-0 h-28 flex align-center justify-center text-center items-center w-full bg-yellow-300'>
+    <div className='w-full relative rounded-md border'>
+      <div className='align-center justify-center text-center items-center w-full bg-yellow-300'>
         <img
-          className='h-full w-full'
+          className=' w-full rounded-t'
           alt='product name'
-          src={'https://picsum.photos/seed/picsum/200/300'}
+          src={props.image}
         />
       </div>
-      <div className='absolute bottom-0 pt-2 text-center border-t w-full'>
+      <div className='pt-2 text-center border-t w-full'>
         <div className='text-center'>
-          <h1 className='font-bold leading-5'>Product 1</h1>
-          <h1 className='font-bold text-xl leading-7'>Rs. 200</h1>
+          <h1 className='font-bold leading-5'>{props.productname}</h1>
+          <h1 className='font-bold text-xl leading-7'>
+            Rs. {props.productprice}
+          </h1>
         </div>
 
         {/* product action bar */}
-        <div className='flex h-full py-2 bg-gray-100 justify-around items-center mt-1'>
-          <button>
+        <div
+          className={`flex h-full py-2 bg-${currTheme.secondaryColor.color}-100 justify-around items-center mt-1`}
+        >
+          <button
+            className={`hover:bg-${currTheme.secondaryColor.color}-400 p-2 rounded-full`}
+            onClick={() => {
+              handleSetActiveCart(props._id);
+            }}
+          >
+            {/*active cart*/}
             <svg
               xmlns='http://www.w3.org/2000/svg'
-              height='16px'
+              height='1rem'
               viewBox='0 0 24 24'
-              width='16px'
+              width='1rem'
               fill='#000000'
             >
               <path d='M0 0h24v24H0V0z' fill='none' />
               <path d='M11 9h2V6h3V4h-3V1h-2v3H8v2h3v3zm-4 9c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zm-8.9-5h7.45c.75 0 1.41-.41 1.75-1.03l3.86-7.01L19.42 4l-3.87 7H8.53L4.27 2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7l1.1-2z' />
             </svg>
           </button>
-          <button>
+          <button
+            className={`hover:bg-${currTheme.secondaryColor.color}-400 p-2 rounded-full`}
+          >
+            {/*wishlist cart*/}
             <svg
               xmlns='http://www.w3.org/2000/svg'
               enable-background='new 0 0 24 24'
-              height='16px'
+              height='1rem'
               viewBox='0 0 24 24'
-              width='16px'
+              width='1rem'
               fill='#000000'
             >
               <rect fill='none' height='24' width='24' />
               <path d='M17,11v6.97l-5-2.14l-5,2.14V5h6V3H7C5.9,3,5,3.9,5,5v16l7-3l7,3V11H17z M21,7h-2v2h-2V7h-2V5h2V3h2v2h2V7z' />
             </svg>
           </button>
-          <button>
+          <button
+            className={`hover:bg-${currTheme.secondaryColor.color}-400 p-2 rounded-full`}
+          >
+            {/*active cart*/}
             <svg
               xmlns='http://www.w3.org/2000/svg'
-              height='16px'
+              height='1rem'
               viewBox='0 0 24 24'
-              width='16px'
+              width='1rem'
               fill='#000000'
             >
               <path d='M0 0h24v24H0V0z' fill='none' />

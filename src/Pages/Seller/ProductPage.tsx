@@ -4,6 +4,8 @@ import ProductDescription from '../../components/User/Product/ProductDescription
 import ProductFullImage from '../../components/User/Product/ProductFullImage';
 import ShareSection from '../../components/User/Product/ShareSection';
 
+// full page view of product with its description and reviews
+
 function ProductPage() {
   return (
     <div>
