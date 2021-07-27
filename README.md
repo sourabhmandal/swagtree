@@ -53,7 +53,7 @@ _One link that links em all_
 
 - Database : MongoDB
 - Backend : ExpressJS (NodeJS)
-- Frontend : ReactJS
+- Frontend : ReactJS, Javascript, Typescript
 
 # Project Kanban
 
