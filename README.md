@@ -6,9 +6,11 @@
 - [ ] Course Analytics
 - [ ] Road map generator
 
-# TypeScript
+# TypeScript Lessons I learned
 
 ## Stateless Functional component (SFC)
+
+To define stateless functional component
 
 ```
 type SFC<P> = StatelessComponent<P>;
@@ -22,7 +24,7 @@ interface StatelessComponent<P> {
 ```
 
 ## Stateful Functional component (SFC)
-
+- To define stateful functional component
 - Apply types to react hooks like so.
 
 ```
