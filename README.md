@@ -1,10 +1,9 @@
 # Features
 
 - [x] generate forms
-- [ ] instant notification on comment
-- [ ] QnA forum
-- [ ] Course Analytics
-- [ ] Road map generator
+- [x] instant notification on comment
+- [x] QnA forum
+- [ ] Payments
 
 # TypeScript Lessons I learned
 
